@@ -24,6 +24,7 @@ RUN apt-get update && \
 COPY ./config/nginx.conf /etc/nginx/sites-enabled/default
 
 COPY --chown=www-data:www-data ./ /app/
+RUN rm -rf /app/bridges
 
 COPY --from=curlimpersonate /usr/local/lib/libcurl-impersonate-ff.so /usr/local/lib/curl-impersonate/
 
